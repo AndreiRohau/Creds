@@ -109,7 +109,8 @@ public class WordListActivity extends AppCompatActivity {
             protected void onPostExecute(Boolean isSuccess) {
                 setResult(RESULT_OK);
                 loadWords();
-                finish();
+//                recyclerView.refreshDrawableState();
+//                finish();
             }
         }.execute();
     }
