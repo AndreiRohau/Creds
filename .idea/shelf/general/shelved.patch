@@ -1,0 +1,164 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:tools=\"http://schemas.android.com/tools\"\r\n          package=\"com.devcolibri.translator\"\r\n          xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\"\r\n        android:name=\".VocabularyApp\"\r\n        tools:ignore=\"AllowBackup,GoogleAppIndexingWarning\">\r\n        <activity android:name=\".activity.WordListActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\"/>\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\r\n            </intent-filter>\r\n        </activity>\r\n\r\n        <activity android:name=\".activity.AddWordActivity\"/>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/AndroidManifest.xml	(date 1623115308493)
+@@ -10,7 +10,7 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme"
+-        android:name=".VocabularyApp"
++        android:name=".MyCredentialsApp"
+         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+         <activity android:name=".activity.WordListActivity">
+             <intent-filter>
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n\r\n    <!-- Base application theme. -->\r\n    <style name=\"AppTheme\" parent=\"Theme.AppCompat.Light.DarkActionBar\">\r\n        <!-- Customize your theme here. -->\r\n        <item name=\"colorPrimary\">@color/colorPrimary</item>\r\n        <item name=\"colorPrimaryDark\">@color/colorPrimaryDark</item>\r\n        <item name=\"colorAccent\">@color/colorAccent</item>\r\n    </style>\r\n\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/res/values/styles.xml	(date 1623115225288)
+@@ -3,7 +3,7 @@
+     <!-- Base application theme. -->
+     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+         <!-- Customize your theme here. -->
+-        <item name="colorPrimary">@color/colorPrimary</item>
++        <item name="colorPrimary">@color/colorAccent</item>
+         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+         <item name="colorAccent">@color/colorAccent</item>
+     </style>
+Index: app/src/main/java/com/devcolibri/translator/VocabularyApp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.devcolibri.translator;\r\n\r\nimport android.app.Application;\r\nimport android.arch.persistence.room.Room;\r\n\r\nimport com.devcolibri.translator.db.AppDatabase;\r\n\r\npublic class VocabularyApp extends Application {\r\n    private static AppDatabase database;\r\n\r\n    @Override\r\n    public void onCreate() {\r\n        super.onCreate();\r\n        database = Room.databaseBuilder(getApplicationContext(),\r\n                                        AppDatabase.class, \"app-database\").build();\r\n    }\r\n\r\n    public static AppDatabase getDatabase() {\r\n        return database;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/devcolibri/translator/VocabularyApp.java	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/java/com/devcolibri/translator/MyCredentialsApp.java	(date 1623115308497)
+@@ -5,7 +5,7 @@
+ 
+ import com.devcolibri.translator.db.AppDatabase;
+ 
+-public class VocabularyApp extends Application {
++public class MyCredentialsApp extends Application {
+     private static AppDatabase database;
+ 
+     @Override
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"colorPrimary\">#008577</color>\r\n    <color name=\"colorPrimaryDark\">#00574B</color>\r\n    <color name=\"colorAccent\">@color/colorPrimary</color>\r\n    <color name=\"white\">#FFF</color>\r\n    <color name=\"black\">#222</color>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/res/values/colors.xml	(date 1623115225284)
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+-    <color name="colorPrimary">#008577</color>
+-    <color name="colorPrimaryDark">#00574B</color>
++    <color name="colorPrimary">#510026</color>
++    <color name="colorPrimaryDark">#3E0007</color>
+     <color name="colorAccent">@color/colorPrimary</color>
+     <color name="white">#FFF</color>
+     <color name="black">#222</color>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Словарь</string>\r\n    <string name=\"add_word_screen\">Добавление слова</string>\r\n    <string name=\"enter_word\">Введите слово</string>\r\n    <string name=\"enter_translation\">Введите перевод</string>\r\n    <string name=\"add\">Добавить</string>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/res/values/strings.xml	(date 1623115225292)
+@@ -1,7 +1,7 @@
+ <resources>
+-    <string name="app_name">Словарь</string>
+-    <string name="add_word_screen">Добавление слова</string>
+-    <string name="enter_word">Введите слово</string>
+-    <string name="enter_translation">Введите перевод</string>
+-    <string name="add">Добавить</string>
++    <string name="app_name">MyCredentials</string>
++    <string name="add_word_screen">Add Credentials</string>
++    <string name="enter_word">Add login</string>
++    <string name="enter_translation">Add password or help-word</string>
++    <string name="add">Add</string>
+ </resources>
+Index: app/src/main/java/com/devcolibri/translator/activity/WordListActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.devcolibri.translator.activity;\r\n\r\nimport java.util.List;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.os.AsyncTask;\r\nimport android.os.Bundle;\r\nimport android.support.annotation.Nullable;\r\nimport android.support.design.widget.FloatingActionButton;\r\nimport android.support.v7.app.AppCompatActivity;\r\nimport android.support.v7.widget.DividerItemDecoration;\r\nimport android.support.v7.widget.LinearLayoutManager;\r\nimport android.support.v7.widget.RecyclerView;\r\nimport android.view.View;\r\nimport android.widget.LinearLayout;\r\n\r\nimport com.devcolibri.translator.R;\r\nimport com.devcolibri.translator.VocabularyApp;\r\nimport com.devcolibri.translator.adapter.WordAdapter;\r\nimport com.devcolibri.translator.db.AppDatabase;\r\nimport com.devcolibri.translator.entity.Word;\r\n\r\npublic class WordListActivity extends AppCompatActivity {\r\n    private static final int ADD_WORD_CODE = 1001;\r\n\r\n    private RecyclerView recyclerView;\r\n    private FloatingActionButton addWordButton;\r\n    private WordAdapter wordAdapter;\r\n\r\n    private AppDatabase database;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        initViews();\r\n\r\n        database = VocabularyApp.getDatabase();\r\n\r\n        loadWords();\r\n    }\r\n\r\n    @SuppressLint(\"StaticFieldLeak\")\r\n    private void loadWords() {\r\n        new AsyncTask<Void, Void, List<Word>>() {\r\n            @Override\r\n            protected List<Word> doInBackground(Void... voids) {\r\n                return database.getPersonDao().getAllWords();\r\n            }\r\n\r\n            @Override\r\n            protected void onPostExecute(List<Word> words) {\r\n                wordAdapter.setWords(words);\r\n            }\r\n        }.execute();\r\n    }\r\n\r\n    private void initViews() {\r\n        recyclerView = findViewById(R.id.words_recycler_view);\r\n        recyclerView.setLayoutManager(new LinearLayoutManager(this));\r\n        wordAdapter = new WordAdapter();\r\n        recyclerView.setAdapter(wordAdapter);\r\n        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));\r\n\r\n        addWordButton = findViewById(R.id.add_word_button);\r\n        addWordButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent intent = new Intent(WordListActivity.this, AddWordActivity.class);\r\n                startActivityForResult(intent, ADD_WORD_CODE);\r\n            }\r\n        });\r\n    }\r\n\r\n    @Override\r\n    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n\r\n        if(requestCode == ADD_WORD_CODE && resultCode == RESULT_OK) {\r\n            loadWords();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/devcolibri/translator/activity/WordListActivity.java	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/java/com/devcolibri/translator/activity/WordListActivity.java	(date 1623115308489)
+@@ -16,7 +16,7 @@
+ import android.widget.LinearLayout;
+ 
+ import com.devcolibri.translator.R;
+-import com.devcolibri.translator.VocabularyApp;
++import com.devcolibri.translator.MyCredentialsApp;
+ import com.devcolibri.translator.adapter.WordAdapter;
+ import com.devcolibri.translator.db.AppDatabase;
+ import com.devcolibri.translator.entity.Word;
+@@ -37,7 +37,7 @@
+ 
+         initViews();
+ 
+-        database = VocabularyApp.getDatabase();
++        database = MyCredentialsApp.getDatabase();
+ 
+         loadWords();
+     }
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ .idea/gradle.xml	(date 1623115105728)
+@@ -3,6 +3,7 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
++        <option name="testRunner" value="PLATFORM" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="modules">
+Index: app/src/main/java/com/devcolibri/translator/activity/AddWordActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.devcolibri.translator.activity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.os.AsyncTask;\r\nimport android.os.Bundle;\r\nimport android.support.v7.app.AppCompatActivity;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\n\r\nimport com.devcolibri.translator.R;\r\nimport com.devcolibri.translator.VocabularyApp;\r\nimport com.devcolibri.translator.db.AppDatabase;\r\nimport com.devcolibri.translator.entity.Word;\r\n\r\npublic class AddWordActivity extends AppCompatActivity {\r\n    private EditText wordEditText;\r\n    private EditText translationEditText;\r\n    private Button addWordButton;\r\n\r\n    private AppDatabase appDatabase;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_add_word);\r\n\r\n        initViews();\r\n\r\n        appDatabase = VocabularyApp.getDatabase();\r\n    }\r\n\r\n    private void initViews() {\r\n        getSupportActionBar().setTitle(R.string.add_word_screen);\r\n\r\n        wordEditText = findViewById(R.id.word_edit_text);\r\n        translationEditText = findViewById(R.id.translation_edit_text);\r\n        addWordButton = findViewById(R.id.add_word_button);\r\n\r\n        addWordButton.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                String wordText = wordEditText.getText().toString();\r\n                String translationText = translationEditText.getText().toString();\r\n\r\n                Word word = new Word(wordText, translationText);\r\n                saveToDatabase(word);\r\n            }\r\n        });\r\n    }\r\n\r\n    @SuppressLint(\"StaticFieldLeak\")\r\n    private void saveToDatabase(final Word word) {\r\n        new AsyncTask<Void, Void, Boolean>() {\r\n            @Override\r\n            protected Boolean doInBackground(Void... voids) {\r\n                appDatabase.getPersonDao().insert(word);\r\n                return true;\r\n            }\r\n\r\n            @Override\r\n            protected void onPostExecute(Boolean isSuccess) {\r\n                setResult(RESULT_OK);\r\n                finish();\r\n            }\r\n        }.execute();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/devcolibri/translator/activity/AddWordActivity.java	(revision 36d77515d632c0ecedf80bac5d639361c6232f64)
++++ app/src/main/java/com/devcolibri/translator/activity/AddWordActivity.java	(date 1623115308484)
+@@ -9,7 +9,7 @@
+ import android.widget.EditText;
+ 
+ import com.devcolibri.translator.R;
+-import com.devcolibri.translator.VocabularyApp;
++import com.devcolibri.translator.MyCredentialsApp;
+ import com.devcolibri.translator.db.AppDatabase;
+ import com.devcolibri.translator.entity.Word;
+ 
+@@ -27,7 +27,7 @@
+ 
+         initViews();
+ 
+-        appDatabase = VocabularyApp.getDatabase();
++        appDatabase = MyCredentialsApp.getDatabase();
+     }
+ 
+     private void initViews() {
